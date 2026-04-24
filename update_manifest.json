@@ -1,8 +1,8 @@
 {
-  "version": "2026.04.24.2",
-  "package_url": "https://github.com/00660/hme-manager-encrypted-updates/releases/download/v2026.04.24.2/hme-manager-encrypted-update-v2026.04.24.2.zip",
-  "sha256": "9a8bd9d3a72fa2691d57013cf41da1b9716b9a375d1f42f5365b8bc57842977a",
-  "notes": "正式版前端隐藏内部升级配置与测试版版本提示。",
+  "version": "2026.04.24.3",
+  "package_url": "https://github.com/00660/hme-manager-encrypted-updates/releases/download/v2026.04.24.3/hme-manager-encrypted-update-v2026.04.24.3.zip",
+  "sha256": "f39fdeffbe43c9ebcc1791744a5546e42850ae732eb49692dce499da2b445ab4",
+  "notes": "新增网络激活自动跳主页、拉黑后自动退回激活页，并提供 GitHub curl+bash 一键 Docker 部署脚本。",
   "channel": "stable",
-  "published_at": "2026-04-24T07:22:00+08:00"
+  "published_at": "2026-04-24T10:08:00+08:00"
 }
