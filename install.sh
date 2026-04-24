@@ -236,7 +236,7 @@ extract_package() {
   while IFS= read -r -d '' compose_file; do
     local candidate_root
     candidate_root="$(dirname "${compose_file}")"
-    if [ -d "${candidate_root}/web_panel" ]; then
+    if [ -e "${candidate_root}/web_panel" ] && [ -f "${candidate_root}/Dockerfile" ]; then
       PACKAGE_ROOT="${candidate_root}"
       break
     fi
