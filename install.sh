@@ -232,22 +232,16 @@ download_package() {
 extract_package() {
   mkdir -p "${TMP_DIR}/extract"
   unzip -q "${TMP_DIR}/package.zip" -d "${TMP_DIR}/extract"
-  PACKAGE_ROOT="$(python3 - "${TMP_DIR}/extract" <<'PY'
-import sys
-from pathlib import Path
-
-base = Path(sys.argv[1])
-candidates = []
-for compose_file in base.rglob("docker-compose.yml"):
-    root = compose_file.parent
-    if (root / "web_panel").exists():
-        candidates.append(root)
-candidates = sorted(set(candidates))
-if not candidates:
-    raise SystemExit(1)
-print(candidates[0])
-PY
-)" || fail "unable to find extracted package root"
+  PACKAGE_ROOT=""
+  while IFS= read -r -d '' compose_file; do
+    local candidate_root
+    candidate_root="$(dirname "${compose_file}")"
+    if [ -d "${candidate_root}/web_panel" ]; then
+      PACKAGE_ROOT="${candidate_root}"
+      break
+    fi
+  done < <(find "${TMP_DIR}/extract" -type f -name 'docker-compose.yml' -print0 2>/dev/null)
+  [ -n "${PACKAGE_ROOT}" ] || fail "unable to find extracted package root"
   [ -f "${PACKAGE_ROOT}/docker-compose.yml" ] || fail "docker-compose.yml not found in extracted package"
 }
 
