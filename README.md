@@ -17,19 +17,19 @@ HME 加密发布仓库，只发布：
 最新版安装：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/00660/hme-manager-encrypted-updates/main/install.sh | sudo bash -s --
+curl -fsSL https://github.com/00660/hme-manager-encrypted-updates/raw/refs/heads/main/install.sh | sudo bash -s --
 ```
 
 指定网络授权 API：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/00660/hme-manager-encrypted-updates/main/install.sh | sudo bash -s -- --license-api-url https://your-license-api.example
+curl -fsSL https://github.com/00660/hme-manager-encrypted-updates/raw/refs/heads/main/install.sh | sudo bash -s -- --license-api-url https://your-license-api.example
 ```
 
 指定面板端口：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/00660/hme-manager-encrypted-updates/main/install.sh | sudo bash -s -- --web-port 8790
+curl -fsSL https://github.com/00660/hme-manager-encrypted-updates/raw/refs/heads/main/install.sh | sudo bash -s -- --web-port 8790
 ```
 
 脚本行为：
@@ -43,7 +43,7 @@ curl -fsSL https://raw.githubusercontent.com/00660/hme-manager-encrypted-updates
 ## 仓库信息
 
 - Repo: `https://github.com/00660/hme-manager-encrypted-updates`
-- Manifest: `https://raw.githubusercontent.com/00660/hme-manager-encrypted-updates/main/update_manifest.json`
-- Install Script: `https://raw.githubusercontent.com/00660/hme-manager-encrypted-updates/main/install.sh`
+- Manifest: `https://github.com/00660/hme-manager-encrypted-updates/raw/refs/heads/main/update_manifest.json`
+- Install Script: `https://github.com/00660/hme-manager-encrypted-updates/raw/refs/heads/main/install.sh`
 - Branch: `main`
 - Manifest Name: `update_manifest.json`
