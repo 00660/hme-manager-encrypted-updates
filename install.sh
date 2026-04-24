@@ -7,9 +7,10 @@ REPO_BRANCH="main"
 MANIFEST_NAME="update_manifest.json"
 MANIFEST_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/raw/refs/heads/${REPO_BRANCH}/${MANIFEST_NAME}"
 DEFAULT_INSTALL_DIR="/opt/sealed-release"
+DEFAULT_LICENSE_API_URL="https://hme-license-signer-dev.pages.dev"
 
 INSTALL_DIR="${APP_INSTALL_DIR:-${DEFAULT_INSTALL_DIR}}"
-LICENSE_API_URL="${APP_LICENSE_API_URL:-}"
+LICENSE_API_URL="${APP_LICENSE_API_URL:-${DEFAULT_LICENSE_API_URL}}"
 WEB_PANEL_BIND_PORT="${APP_WEB_PORT:-}"
 AUX8787_BIND_PORT="${APP_AUX8787_PORT:-}"
 AUX8788_BIND_PORT="${APP_AUX8788_PORT:-}"
@@ -30,7 +31,6 @@ Usage:
 
 Options:
   --install-dir DIR          Install to DIR. Default: /opt/sealed-release
-  --license-api-url URL      Write the remote license API into .env
   --web-port PORT            Override panel port
   --aux8787-port PORT        Override aux 8787 port
   --aux8788-port PORT        Override aux 8788 port
@@ -42,11 +42,10 @@ Examples:
   curl -fsSL https://github.com/00660/hme-manager-encrypted-updates/raw/refs/heads/main/install.sh | sudo bash -s --
 
   curl -fsSL https://github.com/00660/hme-manager-encrypted-updates/raw/refs/heads/main/install.sh | \
-    sudo bash -s -- --license-api-url https://your-license-api.example --web-port 8790
+    sudo bash -s -- --web-port 8790
 
 Environment overrides:
   APP_INSTALL_DIR
-  APP_LICENSE_API_URL
   APP_WEB_PORT
   APP_AUX8787_PORT
   APP_AUX8788_PORT
