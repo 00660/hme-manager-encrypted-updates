@@ -5,7 +5,7 @@ REPO_OWNER="00660"
 REPO_NAME="hme-manager-encrypted-updates"
 REPO_BRANCH="main"
 MANIFEST_NAME="update_manifest.json"
-MANIFEST_URL="https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/${MANIFEST_NAME}"
+MANIFEST_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/raw/refs/heads/${REPO_BRANCH}/${MANIFEST_NAME}"
 DEFAULT_INSTALL_DIR="/opt/hme-manager"
 
 INSTALL_DIR="${HME_INSTALL_DIR:-${DEFAULT_INSTALL_DIR}}"
@@ -39,9 +39,9 @@ Options:
   -h, --help                 Show this help
 
 Examples:
-  curl -fsSL https://raw.githubusercontent.com/00660/hme-manager-encrypted-updates/main/install.sh | sudo bash -s --
+  curl -fsSL https://github.com/00660/hme-manager-encrypted-updates/raw/refs/heads/main/install.sh | sudo bash -s --
 
-  curl -fsSL https://raw.githubusercontent.com/00660/hme-manager-encrypted-updates/main/install.sh | \
+  curl -fsSL https://github.com/00660/hme-manager-encrypted-updates/raw/refs/heads/main/install.sh | \
     sudo bash -s -- --license-api-url https://your-license-api.example --web-port 8790
 
 Environment overrides:
@@ -230,8 +230,19 @@ download_package() {
 }
 
 extract_package() {
+  rm -rf "${TMP_DIR}/extract"
   mkdir -p "${TMP_DIR}/extract"
-  unzip -q "${TMP_DIR}/package.zip" -d "${TMP_DIR}/extract"
+  python3 - "${TMP_DIR}/package.zip" "${TMP_DIR}/extract" <<'PY'
+import sys
+import zipfile
+from pathlib import Path
+
+zip_path = Path(sys.argv[1])
+extract_dir = Path(sys.argv[2])
+
+with zipfile.ZipFile(zip_path) as archive:
+    archive.extractall(extract_dir)
+PY
   PACKAGE_ROOT=""
   while IFS= read -r -d '' compose_file; do
     local candidate_root
