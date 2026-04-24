@@ -1,8 +1,8 @@
 {
-  "version": "2026.04.24.5",
-  "package_url": "https://github.com/00660/hme-manager-encrypted-updates/releases/download/v2026.04.24.5/hme-manager-encrypted-update-v2026.04.24.5.zip",
-  "sha256": "4f48bb1f41340d8f2919dbf26d37ef472f90b387fc78d568fc51328bede1649f",
-  "notes": "精简激活页等待授权与网络异常提示，避免显示整段错误页面。",
+  "version": "2026.04.24.6",
+  "package_url": "https://github.com/00660/hme-manager-encrypted-updates/releases/download/v2026.04.24.6/sealed-release-v2026.04.24.6.zip",
+  "sha256": "594f9321107df573da37a9a4d06f72b53fb8f75596013c20cba61b4831139884",
+  "notes": "默认热更新源切换到 sealed-release-feed，并收掉公开更新仓库标识。",
   "channel": "stable",
-  "published_at": "2026-04-24T12:24:00+08:00"
+  "published_at": "2026-04-24T13:18:00+08:00"
 }
