@@ -1,8 +1,8 @@
 {
-  "version": "2026.04.25.1",
-  "package_url": "https://github.com/00660/hme-manager-encrypted-updates/releases/download/v2026.04.25.1/sealed-release-v2026.04.25.1.zip",
-  "sha256": "337493bd3b26ea89c151aa8d067ec7f7ffa4c131f0ca413cbf47d5d2448e0997",
-  "notes": "导入入口、代理配置与持久化细节修复。",
+  "version": "2026.04.27.7",
+  "package_url": "https://github.com/00660/hme-manager-encrypted-updates/releases/download/v2026.04.27.7/sealed-release-v2026.04.27.7.zip",
+  "sha256": "c4edbe141a66b02b812a9e0abebdcef129d923ed9ed0b8522a1276c53dcc1538",
+  "notes": "改进稳定性与兼容性，修复若干已知问题。",
   "channel": "stable",
-  "published_at": "2026-04-25T17:30:00+08:00"
+  "published_at": "2026-04-27T17:22:55+08:00"
 }
